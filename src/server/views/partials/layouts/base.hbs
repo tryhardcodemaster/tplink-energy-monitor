@@ -17,20 +17,17 @@
     {{/if}}
   </title>
 
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' />
     <link href='https://cdnjs.cloudflare.com/ajax/libs/gentelella/1.4.0/css/custom.min.css' rel='stylesheet' />
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-    <link href='/stylesheets/style.css' rel='stylesheet' />
+    <link href='/styles.css' rel='stylesheet' />
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="https://bernii.github.io/gauge.js/dist/gauge.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-duration-format/2.2.2/moment-duration-format.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-streaming@1.4.0/dist/chartjs-plugin-streaming.min.js"></script>
+
 
 </head>
 
@@ -59,7 +56,12 @@
     {{/footer-content}}
 
     {{#> scripts-block}}
-
+        <script src="bundle.js"></script>
+        <script>
+            $(document).ready(function () {
+                dash.init( '{{device.deviceId}}' );
+            });
+        </script>
     {{/scripts-block}}
 
 </body>

@@ -21,28 +21,26 @@ function broadcastNewLogEntry(deviceId, data) {
 }
 
 function broadcast(payload) {
-  app.getWsClients().forEach(client => {
+  app.getWsClients().forEach((client) => {
     client.send(payload);
-  })
+  });
 }
 
 function generatePayload(dataType, deviceId, data) {
-
-  let payload = {
-    dataType: dataType,
-    deviceId: deviceId,
-    data: data
-  }
+  const payload = {
+    dataType,
+    deviceId,
+    data,
+  };
 
   return JSON.stringify(payload);
 }
 
-
 module.exports = {
-  broadcastRealtimeUsageUpdate: broadcastRealtimeUsageUpdate,
-  broadcastDailyUsageUpdate: broadcastDailyUsageUpdate,
-  broadcastMonthlyUsageUpdate: broadcastMonthlyUsageUpdate,
-  broadcastPowerStateUpdate: broadcastPowerStateUpdate,
-  broadcastNewLogEntry: broadcastNewLogEntry,
-  generatePayload: generatePayload
-}
+  broadcastRealtimeUsageUpdate,
+  broadcastDailyUsageUpdate,
+  broadcastMonthlyUsageUpdate,
+  broadcastPowerStateUpdate,
+  broadcastNewLogEntry,
+  generatePayload,
+};
